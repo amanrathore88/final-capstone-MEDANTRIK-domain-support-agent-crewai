@@ -1,0 +1,12 @@
+{
+  "last_checked": "2026-11-07",
+  "project_disclaimer": "Unofficial student-built demonstration. Not affiliated with or operated by Medantrik. Synthetic tickets and demo policies only.",
+  "company": {"name": "Medantrik Medtech Pvt. Ltd.", "focus": "Respiratory medical technology and device innovation", "incubation": "IIT Kanpur-incubated", "email": "info@medantrik.com", "office": "D-25, Sector 63A, Noida, Uttar Pradesh 201309", "official_site": "https://medantrik.com/"},
+  "products": [
+    {"id":"oxysense", "name":"OxySense", "kind":"Inline Oxygen Analyzer", "safe_description":"A device described by Medantrik as an inline oxygen purity analyser.", "support_intents":["product_overview", "demo_request", "technical_support", "training_request"], "source":"https://medantrik.com/?p=1930"},
+    {"id":"nodex", "name":"NODex", "kind":"Respiratory assessment device", "safe_description":"A compact smart respiratory device described on Medantrik's website.", "support_intents":["product_overview", "device_help", "demo_request", "technical_support"], "source":"https://medantrik.com/?p=1930"},
+    {"id":"iron_lung", "name":"Iron Lung", "kind":"Smart Respiration System", "safe_description":"A smart respiration system listed in Medantrik's product portfolio.", "support_intents":["product_overview", "training_request", "service_request", "demo_request"], "source":"https://medantrik.com/?p=1930"}
+  ],
+  "contact": {"source":"https://www.medantrik.com/contact", "published_work_hours_contact_page":"Monday–Saturday 9:00 AM–5:00 PM IST", "published_work_hours_footer":"Monday–Saturday 9:00 AM–6:00 PM IST", "hours_status":"CONFLICTING: must verify; do not promise staffed hours"},
+  "explicit_unknowns": ["real warranty terms", "real refund policy", "real ticket SLAs", "real customer datasets", "real device setup manuals", "real medical performance validation", "real service booking integration"]
+}

@@ -1,0 +1,34 @@
+{
+  "case_1_approved": {
+    "draft_answer": "OxySense is an inline oxygen analyzer developed for respiratory purity monitoring.",
+    "verdict": {
+      "approved": true,
+      "final_answer": "OxySense is an inline oxygen analyzer developed for respiratory purity monitoring.",
+      "reason": "Draft matches verified evidence and knowledge-base sources."
+    },
+    "speakers": [
+      "Policy_Compliance_Reviewer",
+      "Final_Editor"
+    ],
+    "approved_status": true
+  },
+  "case_2_revised": {
+    "draft_answer": "OxySense provides a 5-year unlimited warranty and replaces devices within 2 hours free of charge.",
+    "verdict": {
+      "approved": false,
+      "final_answer": "OxySense is an inline oxygen analyzer developed for respiratory purity monitoring.",
+      "reason": "Replaced ungrounded or speculative draft statements with verified evidence-only text."
+    },
+    "speakers": [
+      "Policy_Compliance_Reviewer",
+      "Final_Editor"
+    ],
+    "approved_status": false
+  },
+  "verification": {
+    "two_agent_round_robin": true,
+    "structured_message_used": true,
+    "approved_case_proven": true,
+    "revised_case_proven": true
+  }
+}

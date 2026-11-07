@@ -1,0 +1,31 @@
+{
+  "query": "What is the return and refund policy for orders?",
+  "first_call": {
+    "cache_hit": false,
+    "cache_stats": {
+      "cached_entries": 1,
+      "hits": 0,
+      "misses": 1,
+      "total_lookups": 1,
+      "hit_ratio": 0.0
+    },
+    "tool_calls_executed": 1
+  },
+  "second_call": {
+    "cache_hit": true,
+    "cache_stats": {
+      "cached_entries": 1,
+      "hits": 1,
+      "misses": 1,
+      "total_lookups": 2,
+      "hit_ratio": 0.5
+    },
+    "tool_calls_executed": 0
+  },
+  "verification": {
+    "initial_misses": 1,
+    "second_call_hits": 1,
+    "cache_hit_proven": true,
+    "private_ticket_caching_blocked": true
+  }
+}

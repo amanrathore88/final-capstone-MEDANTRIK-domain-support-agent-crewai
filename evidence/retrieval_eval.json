@@ -1,0 +1,226 @@
+{
+  "summary": {
+    "fixed_overlap": {
+      "mean_precision": 0.4667,
+      "mean_recall": 1.0,
+      "f1_score": 0.6364,
+      "fallback_verified": true
+    },
+    "sentence_based": {
+      "mean_precision": 0.4667,
+      "mean_recall": 0.8,
+      "f1_score": 0.5895,
+      "fallback_verified": true
+    }
+  },
+  "eval_results": {
+    "fixed_overlap": [
+      {
+        "query_id": "q1",
+        "query": "What are the rules for repeat complaints within thirty days?",
+        "expected": [
+          "07_repeat_complaints"
+        ],
+        "retrieved_parents": [
+          "07_repeat_complaints",
+          "02_severity_sla",
+          "03_escalation_matrix"
+        ],
+        "top_1_similarity": 0.3858,
+        "tp": 1,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.3333,
+        "recall": 1.0,
+        "precision_fraction": "1/3",
+        "recall_fraction": "1/1"
+      },
+      {
+        "query_id": "q2",
+        "query": "How are VIP priority customers handled in the queue?",
+        "expected": [
+          "10_vip_handling"
+        ],
+        "retrieved_parents": [
+          "10_vip_handling",
+          "01_ticket_priority"
+        ],
+        "top_1_similarity": 0.5302,
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "precision_fraction": "1/2",
+        "recall_fraction": "1/1"
+      },
+      {
+        "query_id": "q3",
+        "query": "What happens during a product support outage?",
+        "expected": [
+          "11_outage_communication"
+        ],
+        "retrieved_parents": [
+          "11_outage_communication",
+          "01_ticket_priority"
+        ],
+        "top_1_similarity": 0.6622,
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "precision_fraction": "1/2",
+        "recall_fraction": "1/1"
+      },
+      {
+        "query_id": "q4",
+        "query": "What is the data retention policy for support tickets?",
+        "expected": [
+          "12_ticket_retention"
+        ],
+        "retrieved_parents": [
+          "12_ticket_retention",
+          "03_escalation_matrix"
+        ],
+        "top_1_similarity": 0.3997,
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "precision_fraction": "1/2",
+        "recall_fraction": "1/1"
+      },
+      {
+        "query_id": "q5",
+        "query": "Who approves service credits for customers?",
+        "expected": [
+          "08_service_credit"
+        ],
+        "retrieved_parents": [
+          "08_service_credit",
+          "03_escalation_matrix"
+        ],
+        "top_1_similarity": 0.6047,
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "precision_fraction": "1/2",
+        "recall_fraction": "1/1"
+      }
+    ],
+    "sentence_based": [
+      {
+        "query_id": "q1",
+        "query": "What are the rules for repeat complaints within thirty days?",
+        "expected": [
+          "07_repeat_complaints"
+        ],
+        "retrieved_parents": [
+          "02_severity_sla",
+          "03_escalation_matrix",
+          "01_ticket_priority"
+        ],
+        "top_1_similarity": 0.4262,
+        "tp": 0,
+        "fp": 3,
+        "fn": 1,
+        "precision": 0.0,
+        "recall": 0.0,
+        "precision_fraction": "0/3",
+        "recall_fraction": "0/1"
+      },
+      {
+        "query_id": "q2",
+        "query": "How are VIP priority customers handled in the queue?",
+        "expected": [
+          "10_vip_handling"
+        ],
+        "retrieved_parents": [
+          "10_vip_handling",
+          "01_ticket_priority"
+        ],
+        "top_1_similarity": 0.5426,
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "precision_fraction": "1/2",
+        "recall_fraction": "1/1"
+      },
+      {
+        "query_id": "q3",
+        "query": "What happens during a product support outage?",
+        "expected": [
+          "11_outage_communication"
+        ],
+        "retrieved_parents": [
+          "11_outage_communication"
+        ],
+        "top_1_similarity": 0.517,
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "precision_fraction": "1/1",
+        "recall_fraction": "1/1"
+      },
+      {
+        "query_id": "q4",
+        "query": "What is the data retention policy for support tickets?",
+        "expected": [
+          "12_ticket_retention"
+        ],
+        "retrieved_parents": [
+          "11_outage_communication",
+          "12_ticket_retention",
+          "09_feedback"
+        ],
+        "top_1_similarity": 0.4501,
+        "tp": 1,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.3333,
+        "recall": 1.0,
+        "precision_fraction": "1/3",
+        "recall_fraction": "1/1"
+      },
+      {
+        "query_id": "q5",
+        "query": "Who approves service credits for customers?",
+        "expected": [
+          "08_service_credit"
+        ],
+        "retrieved_parents": [
+          "08_service_credit",
+          "03_escalation_matrix"
+        ],
+        "top_1_similarity": 0.5315,
+        "tp": 1,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.5,
+        "recall": 1.0,
+        "precision_fraction": "1/2",
+        "recall_fraction": "1/1"
+      }
+    ],
+    "fixed_overlap_out_of_scope": {
+      "query": "Explain the general theory of relativity and black holes in spacetime",
+      "top_1_similarity": 0.1273,
+      "threshold": 0.3221,
+      "fallback_triggered": true
+    },
+    "sentence_based_out_of_scope": {
+      "query": "Explain the general theory of relativity and black holes in spacetime",
+      "top_1_similarity": 0.1348,
+      "threshold": 0.3231,
+      "fallback_triggered": true
+    }
+  }
+}

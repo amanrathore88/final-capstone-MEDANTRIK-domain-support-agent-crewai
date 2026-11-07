@@ -1,0 +1,128 @@
+{
+  "queries": [
+    {
+      "id": "in_01",
+      "type": "in_domain",
+      "query": "What is the severity SLA response time for critical issues?",
+      "expected_doc": "02_severity_sla"
+    },
+    {
+      "id": "in_02",
+      "type": "in_domain",
+      "query": "Can I get a refund or compensation for an order?",
+      "expected_doc": "04_refund_compensation"
+    },
+    {
+      "id": "in_03",
+      "type": "in_domain",
+      "query": "What kind of device is OxySense and what does it monitor?",
+      "expected_doc": "product_oxysense"
+    },
+    {
+      "id": "out_01",
+      "type": "out_of_domain",
+      "query": "How do I make chocolate chip cookies from scratch?",
+      "expected_doc": null
+    },
+    {
+      "id": "out_02",
+      "type": "out_of_domain",
+      "query": "What was the score of the cricket match yesterday?",
+      "expected_doc": null
+    }
+  ],
+  "results_by_strategy": {
+    "fixed_overlap": [
+      {
+        "id": "in_01",
+        "type": "in_domain",
+        "query": "What is the severity SLA response time for critical issues?",
+        "top_1_similarity": 0.4814,
+        "top_1_doc": "02_severity_sla"
+      },
+      {
+        "id": "in_02",
+        "type": "in_domain",
+        "query": "Can I get a refund or compensation for an order?",
+        "top_1_similarity": 0.6662,
+        "top_1_doc": "04_refund_compensation"
+      },
+      {
+        "id": "in_03",
+        "type": "in_domain",
+        "query": "What kind of device is OxySense and what does it monitor?",
+        "top_1_similarity": 0.6401,
+        "top_1_doc": "product_oxysense"
+      },
+      {
+        "id": "out_01",
+        "type": "out_of_domain",
+        "query": "How do I make chocolate chip cookies from scratch?",
+        "top_1_similarity": 0.0808,
+        "top_1_doc": "12_ticket_retention"
+      },
+      {
+        "id": "out_02",
+        "type": "out_of_domain",
+        "query": "What was the score of the cricket match yesterday?",
+        "top_1_similarity": 0.1628,
+        "top_1_doc": "02_severity_sla"
+      }
+    ],
+    "sentence_based": [
+      {
+        "id": "in_01",
+        "type": "in_domain",
+        "query": "What is the severity SLA response time for critical issues?",
+        "top_1_similarity": 0.4409,
+        "top_1_doc": "01_ticket_priority"
+      },
+      {
+        "id": "in_02",
+        "type": "in_domain",
+        "query": "Can I get a refund or compensation for an order?",
+        "top_1_similarity": 0.5119,
+        "top_1_doc": "04_refund_compensation"
+      },
+      {
+        "id": "in_03",
+        "type": "in_domain",
+        "query": "What kind of device is OxySense and what does it monitor?",
+        "top_1_similarity": 0.6863,
+        "top_1_doc": "product_oxysense"
+      },
+      {
+        "id": "out_01",
+        "type": "out_of_domain",
+        "query": "How do I make chocolate chip cookies from scratch?",
+        "top_1_similarity": 0.1355,
+        "top_1_doc": "12_ticket_retention"
+      },
+      {
+        "id": "out_02",
+        "type": "out_of_domain",
+        "query": "What was the score of the cricket match yesterday?",
+        "top_1_similarity": 0.2052,
+        "top_1_doc": "11_outage_communication"
+      }
+    ]
+  },
+  "analysis": {
+    "fixed_overlap": {
+      "min_in_domain_similarity": 0.4814,
+      "max_out_of_domain_similarity": 0.1628,
+      "margin": 0.3186,
+      "chosen_threshold": 0.3221,
+      "clusters_separated": true
+    },
+    "sentence_based": {
+      "min_in_domain_similarity": 0.4409,
+      "max_out_of_domain_similarity": 0.2052,
+      "margin": 0.2357,
+      "chosen_threshold": 0.3231,
+      "clusters_separated": true
+    }
+  },
+  "recommended_strategy": "fixed_overlap",
+  "recommended_threshold": 0.3221
+}

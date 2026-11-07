@@ -1,0 +1,53 @@
+# Secrets and machine-local settings
+.env
+*.key
+*.token
+
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Runtime and local persistent caches
+.runtime/
+.cache/
+hf_cache/
+
+# Generated databases / SQLite runtime files
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+chroma_db/
+chroma_store/
+
+# Node & Frontend dependencies
+node_modules/
+frontend/node_modules/
+frontend/.vite/
+
+# Transcripts and local logs
+*.log
+logs/
+.system_generated/
+
+# Reference benchmarks and temporary scratch
+archive/
+handoff/
+ola_ref/
+scratch/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

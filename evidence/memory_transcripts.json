@@ -1,0 +1,30 @@
+{
+  "multi_turn_session": {
+    "session_id": "demo-session-multi-turn",
+    "turns": [
+      {
+        "user": "Can you look up support ticket MED-0003?",
+        "assistant": "Ticket MED-0003 for NODex is currently Escalated.",
+        "resolved_ticket": "MED-0003"
+      },
+      {
+        "user": "Why is it escalated?",
+        "assistant": "Ticket MED-0003 for NODex is currently Escalated.",
+        "resolved_ticket": "MED-0003"
+      }
+    ],
+    "history_length": 4,
+    "context_carried_successfully": true
+  },
+  "isolated_fresh_session": {
+    "session_id": "demo-session-fresh",
+    "turns": [
+      {
+        "user": "Why is it escalated?",
+        "assistant": "No ticket context found for this request."
+      }
+    ],
+    "history_length": 2,
+    "isolated_from_prior_session": true
+  }
+}

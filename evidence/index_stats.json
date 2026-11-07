@@ -1,0 +1,26 @@
+{
+  "raw_documents_count": 16,
+  "fixed_chunks_count": 33,
+  "sentence_chunks_count": 60,
+  "chroma_fixed_collection_count": 33,
+  "chroma_sentence_collection_count": 60,
+  "model": "all-MiniLM-L6-v2",
+  "sample_fixed_chunk": {
+    "chunk_id": "01_ticket_priority_fix_00",
+    "parent_doc_id": "01_ticket_priority",
+    "title": "Demo Ticket-Priority Policy",
+    "source_type": "SYNTHETIC_DEMO_POLICY",
+    "url": "local://knowledge_base/01_ticket_priority.md",
+    "strategy": "fixed_overlap",
+    "text": "In this synthetic capstone, product-safety concerns and equipment alarms receive critical priority and immediate human escalation. Repeated outages, inaccessible accounts, and unresolved technical problems receive high priority after"
+  },
+  "sample_sentence_chunk": {
+    "chunk_id": "01_ticket_priority_sen_00",
+    "parent_doc_id": "01_ticket_priority",
+    "title": "Demo Ticket-Priority Policy",
+    "source_type": "SYNTHETIC_DEMO_POLICY",
+    "url": "local://knowledge_base/01_ticket_priority.md",
+    "strategy": "sentence_based",
+    "text": "In this synthetic capstone, product-safety concerns and equipment alarms receive critical priority and immediate human escalation."
+  }
+}

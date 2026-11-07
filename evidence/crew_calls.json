@@ -1,0 +1,466 @@
+{
+  "policy_crew_run": {
+    "plan": {
+      "policy_query": "What is the return and refund policy for orders?",
+      "ticket_id": null
+    },
+    "response": {
+      "answer": "A refund or compensation request is only recorded as a ticket in this demonstration. The assistant cannot promise eligibility, a repayment date, a refund amount, or change a payment record. A human reviewer must inspect the synthetic order A human reviewer must inspect the synthetic order context and decide whether the request can proceed. No real Medantrik refund policy or transaction processing is included.",
+      "outcome": "answered",
+      "citations": [
+        {
+          "id": "04_refund_compensation",
+          "title": "Demo Refund and Compensation Handling",
+          "source_type": "SYNTHETIC_DEMO_POLICY",
+          "url": "local://knowledge_base/04_refund_compensation.md",
+          "similarity": 0.5587
+        },
+        {
+          "id": "03_escalation_matrix",
+          "title": "Demo Escalation Matrix",
+          "source_type": "SYNTHETIC_DEMO_POLICY",
+          "url": "local://knowledge_base/03_escalation_matrix.md",
+          "similarity": 0.3362
+        }
+      ],
+      "ticket": null,
+      "guardrails": [],
+      "needs_human": false,
+      "trace_id": null
+    },
+    "stages": [
+      {
+        "kind": "rag",
+        "requested": true,
+        "data": {
+          "answer": "A refund or compensation request is only recorded as a ticket in this demonstration. The assistant cannot promise eligibility, a repayment date, a refund amount, or change a payment record. A human reviewer must inspect the synthetic order A human reviewer must inspect the synthetic order context and decide whether the request can proceed. No real Medantrik refund policy or transaction processing is included.",
+          "citations": [
+            {
+              "id": "04_refund_compensation",
+              "similarity": 0.5587,
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "title": "Demo Refund and Compensation Handling",
+              "url": "local://knowledge_base/04_refund_compensation.md"
+            },
+            {
+              "id": "03_escalation_matrix",
+              "similarity": 0.3362,
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "title": "Demo Escalation Matrix",
+              "url": "local://knowledge_base/03_escalation_matrix.md"
+            }
+          ],
+          "grounded": true,
+          "max_similarity": 0.5587,
+          "outcome": "answered",
+          "threshold": 0.3221
+        }
+      },
+      {
+        "kind": "ticket",
+        "requested": false,
+        "data": {}
+      }
+    ],
+    "tool_calls": [
+      {
+        "event": "tool_executed",
+        "tool": "rag_lookup",
+        "kind": "rag",
+        "arguments": {
+          "query": "What is the return and refund policy for orders?"
+        },
+        "result": {
+          "outcome": "answered",
+          "answer": "A refund or compensation request is only recorded as a ticket in this demonstration. The assistant cannot promise eligibility, a repayment date, a refund amount, or change a payment record. A human reviewer must inspect the synthetic order A human reviewer must inspect the synthetic order context and decide whether the request can proceed. No real Medantrik refund policy or transaction processing is included.",
+          "citations": [
+            {
+              "id": "04_refund_compensation",
+              "title": "Demo Refund and Compensation Handling",
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "url": "local://knowledge_base/04_refund_compensation.md",
+              "similarity": 0.5587
+            },
+            {
+              "id": "03_escalation_matrix",
+              "title": "Demo Escalation Matrix",
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "url": "local://knowledge_base/03_escalation_matrix.md",
+              "similarity": 0.3362
+            }
+          ],
+          "max_similarity": 0.5587,
+          "threshold": 0.3221,
+          "grounded": true
+        }
+      }
+    ],
+    "all_events": [
+      {
+        "event": "model_requested_tool",
+        "kind": "rag",
+        "declared_schema": {
+          "properties": {
+            "query": {
+              "title": "Query",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "tool": "rag_lookup",
+        "arguments": {
+          "query": "What is the return and refund policy for orders?"
+        }
+      },
+      {
+        "event": "model_call",
+        "kind": "rag"
+      },
+      {
+        "event": "tool_executed",
+        "tool": "rag_lookup",
+        "kind": "rag",
+        "arguments": {
+          "query": "What is the return and refund policy for orders?"
+        },
+        "result": {
+          "outcome": "answered",
+          "answer": "A refund or compensation request is only recorded as a ticket in this demonstration. The assistant cannot promise eligibility, a repayment date, a refund amount, or change a payment record. A human reviewer must inspect the synthetic order A human reviewer must inspect the synthetic order context and decide whether the request can proceed. No real Medantrik refund policy or transaction processing is included.",
+          "citations": [
+            {
+              "id": "04_refund_compensation",
+              "title": "Demo Refund and Compensation Handling",
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "url": "local://knowledge_base/04_refund_compensation.md",
+              "similarity": 0.5587
+            },
+            {
+              "id": "03_escalation_matrix",
+              "title": "Demo Escalation Matrix",
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "url": "local://knowledge_base/03_escalation_matrix.md",
+              "similarity": 0.3362
+            }
+          ],
+          "max_similarity": 0.5587,
+          "threshold": 0.3221,
+          "grounded": true
+        }
+      },
+      {
+        "event": "model_consumed_tool_result",
+        "kind": "rag",
+        "result": {
+          "answer": "A refund or compensation request is only recorded as a ticket in this demonstration. The assistant cannot promise eligibility, a repayment date, a refund amount, or change a payment record. A human reviewer must inspect the synthetic order A human reviewer must inspect the synthetic order context and decide whether the request can proceed. No real Medantrik refund policy or transaction processing is included.",
+          "citations": [
+            {
+              "id": "04_refund_compensation",
+              "similarity": 0.5587,
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "title": "Demo Refund and Compensation Handling",
+              "url": "local://knowledge_base/04_refund_compensation.md"
+            },
+            {
+              "id": "03_escalation_matrix",
+              "similarity": 0.3362,
+              "source_type": "SYNTHETIC_DEMO_POLICY",
+              "title": "Demo Escalation Matrix",
+              "url": "local://knowledge_base/03_escalation_matrix.md"
+            }
+          ],
+          "grounded": true,
+          "max_similarity": 0.5587,
+          "outcome": "answered",
+          "threshold": 0.3221
+        }
+      },
+      {
+        "event": "model_call",
+        "kind": "rag"
+      },
+      {
+        "event": "stage_not_requested",
+        "kind": "ticket"
+      },
+      {
+        "event": "model_call",
+        "kind": "ticket"
+      },
+      {
+        "event": "composer_consumed_context",
+        "stages": [
+          {
+            "kind": "rag",
+            "requested": true,
+            "data": {
+              "answer": "A refund or compensation request is only recorded as a ticket in this demonstration. The assistant cannot promise eligibility, a repayment date, a refund amount, or change a payment record. A human reviewer must inspect the synthetic order A human reviewer must inspect the synthetic order context and decide whether the request can proceed. No real Medantrik refund policy or transaction processing is included.",
+              "citations": [
+                {
+                  "id": "04_refund_compensation",
+                  "similarity": 0.5587,
+                  "source_type": "SYNTHETIC_DEMO_POLICY",
+                  "title": "Demo Refund and Compensation Handling",
+                  "url": "local://knowledge_base/04_refund_compensation.md"
+                },
+                {
+                  "id": "03_escalation_matrix",
+                  "similarity": 0.3362,
+                  "source_type": "SYNTHETIC_DEMO_POLICY",
+                  "title": "Demo Escalation Matrix",
+                  "url": "local://knowledge_base/03_escalation_matrix.md"
+                }
+              ],
+              "grounded": true,
+              "max_similarity": 0.5587,
+              "outcome": "answered",
+              "threshold": 0.3221
+            }
+          },
+          {
+            "kind": "ticket",
+            "requested": false,
+            "data": {}
+          }
+        ]
+      },
+      {
+        "event": "model_call",
+        "kind": "composer"
+      }
+    ]
+  },
+  "ticket_crew_run": {
+    "plan": {
+      "policy_query": "",
+      "ticket_id": "MED-0003"
+    },
+    "response": {
+      "answer": "Ticket MED-0003 for NODex (Technical Issue) is currently Escalated. Age: 29 days, Reopens: 0, Escalation score: 0.7900 (Review recommended: True).",
+      "outcome": "answered",
+      "citations": [],
+      "ticket": {
+        "record_id": "MED-0003",
+        "category": "Technical Issue",
+        "status": "Escalated",
+        "resolution_time_hours": 75,
+        "days_since_created": 29,
+        "escalated": true,
+        "product": "NODex",
+        "reopen_count": 0,
+        "subject": "Connectivity issue reported",
+        "escalation_score": 0.79,
+        "recommended_review": true
+      },
+      "guardrails": [],
+      "needs_human": true,
+      "trace_id": null
+    },
+    "stages": [
+      {
+        "kind": "rag",
+        "requested": false,
+        "data": {}
+      },
+      {
+        "kind": "ticket",
+        "requested": true,
+        "data": {
+          "escalation_score": 0.79,
+          "found": true,
+          "recommended_review": true,
+          "record_id": "MED-0003",
+          "review_threshold": 0.366667,
+          "summary": "Ticket MED-0003 for NODex (Technical Issue) is currently Escalated. Age: 29 days, Reopens: 0, Escalation score: 0.7900 (Review recommended: True).",
+          "ticket": {
+            "category": "Technical Issue",
+            "days_since_created": 29,
+            "escalated": true,
+            "escalation_score": 0.79,
+            "product": "NODex",
+            "recommended_review": true,
+            "record_id": "MED-0003",
+            "reopen_count": 0,
+            "resolution_time_hours": 75,
+            "status": "Escalated",
+            "subject": "Connectivity issue reported"
+          }
+        }
+      }
+    ],
+    "tool_calls": [
+      {
+        "event": "tool_executed",
+        "tool": "check_support_ticket_status",
+        "kind": "ticket",
+        "arguments": {
+          "record_id": "MED-0003"
+        },
+        "result": {
+          "found": true,
+          "record_id": "MED-0003",
+          "ticket": {
+            "record_id": "MED-0003",
+            "category": "Technical Issue",
+            "status": "Escalated",
+            "resolution_time_hours": 75,
+            "days_since_created": 29,
+            "escalated": true,
+            "product": "NODex",
+            "reopen_count": 0,
+            "subject": "Connectivity issue reported",
+            "escalation_score": 0.79,
+            "recommended_review": true
+          },
+          "escalation_score": 0.79,
+          "review_threshold": 0.366667,
+          "recommended_review": true,
+          "summary": "Ticket MED-0003 for NODex (Technical Issue) is currently Escalated. Age: 29 days, Reopens: 0, Escalation score: 0.7900 (Review recommended: True)."
+        }
+      }
+    ],
+    "all_events": [
+      {
+        "event": "stage_not_requested",
+        "kind": "rag"
+      },
+      {
+        "event": "model_call",
+        "kind": "rag"
+      },
+      {
+        "event": "model_requested_tool",
+        "kind": "ticket",
+        "declared_schema": {
+          "properties": {
+            "record_id": {
+              "title": "Record Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "record_id"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "tool": "check_support_ticket_status",
+        "arguments": {
+          "record_id": "MED-0003"
+        }
+      },
+      {
+        "event": "model_call",
+        "kind": "ticket"
+      },
+      {
+        "event": "tool_executed",
+        "tool": "check_support_ticket_status",
+        "kind": "ticket",
+        "arguments": {
+          "record_id": "MED-0003"
+        },
+        "result": {
+          "found": true,
+          "record_id": "MED-0003",
+          "ticket": {
+            "record_id": "MED-0003",
+            "category": "Technical Issue",
+            "status": "Escalated",
+            "resolution_time_hours": 75,
+            "days_since_created": 29,
+            "escalated": true,
+            "product": "NODex",
+            "reopen_count": 0,
+            "subject": "Connectivity issue reported",
+            "escalation_score": 0.79,
+            "recommended_review": true
+          },
+          "escalation_score": 0.79,
+          "review_threshold": 0.366667,
+          "recommended_review": true,
+          "summary": "Ticket MED-0003 for NODex (Technical Issue) is currently Escalated. Age: 29 days, Reopens: 0, Escalation score: 0.7900 (Review recommended: True)."
+        }
+      },
+      {
+        "event": "model_consumed_tool_result",
+        "kind": "ticket",
+        "result": {
+          "escalation_score": 0.79,
+          "found": true,
+          "recommended_review": true,
+          "record_id": "MED-0003",
+          "review_threshold": 0.366667,
+          "summary": "Ticket MED-0003 for NODex (Technical Issue) is currently Escalated. Age: 29 days, Reopens: 0, Escalation score: 0.7900 (Review recommended: True).",
+          "ticket": {
+            "category": "Technical Issue",
+            "days_since_created": 29,
+            "escalated": true,
+            "escalation_score": 0.79,
+            "product": "NODex",
+            "recommended_review": true,
+            "record_id": "MED-0003",
+            "reopen_count": 0,
+            "resolution_time_hours": 75,
+            "status": "Escalated",
+            "subject": "Connectivity issue reported"
+          }
+        }
+      },
+      {
+        "event": "model_call",
+        "kind": "ticket"
+      },
+      {
+        "event": "composer_consumed_context",
+        "stages": [
+          {
+            "kind": "rag",
+            "requested": false,
+            "data": {}
+          },
+          {
+            "kind": "ticket",
+            "requested": true,
+            "data": {
+              "escalation_score": 0.79,
+              "found": true,
+              "recommended_review": true,
+              "record_id": "MED-0003",
+              "review_threshold": 0.366667,
+              "summary": "Ticket MED-0003 for NODex (Technical Issue) is currently Escalated. Age: 29 days, Reopens: 0, Escalation score: 0.7900 (Review recommended: True).",
+              "ticket": {
+                "category": "Technical Issue",
+                "days_since_created": 29,
+                "escalated": true,
+                "escalation_score": 0.79,
+                "product": "NODex",
+                "recommended_review": true,
+                "record_id": "MED-0003",
+                "reopen_count": 0,
+                "resolution_time_hours": 75,
+                "status": "Escalated",
+                "subject": "Connectivity issue reported"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "event": "model_call",
+        "kind": "composer"
+      }
+    ]
+  },
+  "verification": {
+    "three_agents_orchestrated": true,
+    "crew_kickoff_succeeded": true,
+    "rag_tool_observed": true,
+    "ticket_tool_observed": true,
+    "least_autonomy_enforced": true
+  }
+}

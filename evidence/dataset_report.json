@@ -1,0 +1,24 @@
+{
+  "seed": 20261107,
+  "total": 80,
+  "category_counts": {
+    "Account Access": 6,
+    "Product Defect": 16,
+    "Technical Issue": 33,
+    "General Inquiry": 15,
+    "Billing": 10
+  },
+  "status_counts": {
+    "In Progress": 14,
+    "Closed": 21,
+    "Escalated": 12,
+    "Resolved": 16,
+    "Open": 17
+  },
+  "escalated_pct": 17.5,
+  "unique_record_ids": 80,
+  "all_categories_ge_3": true,
+  "all_statuses_ge_1": true,
+  "escalated_between_10_and_30": true,
+  "age_range_days": [0, 30]
+}
