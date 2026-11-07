@@ -1,7 +1,9 @@
 # MEDANTRIK ASSIST — Intelligent Device Support OS
 
 > **Official Capstone Submission Domain:** `Chat Support System`  
+> **Benchmark Technical Specification:** 16-Task Architecture (adapted from the reference technical rubric to Medantrik Medtech)  
 > **Target Enterprise:** Medantrik Medtech Pvt. Ltd. ([https://medantrik.com/](https://medantrik.com/))  
+> **GitHub Repository:** [https://github.com/amanrathore88/final-capstone-MEDANTRIK-domain-support-agent-crewai](https://github.com/amanrathore88/final-capstone-MEDANTRIK-domain-support-agent-crewai)  
 > **Project Mode:** Local-First, Zero-Paid-Dependency, Fully Deterministic AI Multi-Agent Prototype  
 > **Student Author Disclaimer:** This capstone is an independent student academic demonstration for respiratory medtech device support. It is not an official product of Medantrik Medtech Pvt. Ltd. All ticket records, customer identities, SLAs, and refund terms are strictly synthetic. Device product descriptions are sourced from Medantrik's public portal.
 
@@ -12,6 +14,18 @@
 **MEDANTRIK ASSIST** is a multi-agent AI operating system engineered for customer, clinical, and technical device support across Medantrik's respiratory device portfolio (**OxySense**, **NODex**, and **Iron Lung**). 
 
 The system implements evidence-grounded answers via dual-strategy ChromaDB retrieval, deterministic keyless **CrewAI** 3-agent orchestration (`Retrieval Agent`, `Ticket Lookup Agent`, `Response Composer`), multi-turn **LangChain** conversation memory, dual-agent **AutoGen** structured compliance review (`Policy Compliance Reviewer` and `Final Editor`), strict PII sanitization (Indian phone number masking), clinical safety triage, prompt-injection defense, response-level governance, semantic policy caching, and a responsive **React 18 + TypeScript** desktop/mobile interface.
+
+### Zero-Key Offline Execution & Telemetry Guarantee
+As mandated by the technical rubric:
+- **`MOCK_LLM=true`**: All agents (CrewAI, AutoGen, LLM-as-judge) execute under deterministic, keyless mock adapters with zero paid API keys required.
+- **Telemetry Disabled**: CrewAI and OpenTelemetry outbound network pings are strictly disabled prior to framework import via:
+  ```python
+  os.environ["CREWAI_DISABLE_TELEMETRY"] = "true"
+  os.environ["OTEL_SDK_DISABLED"] = "true"
+  os.environ["CREWAI_TRACING_ENABLED"] = "false"
+  os.environ["ANONYMIZED_TELEMETRY"] = "false"
+  ```
+- **Local Vectors**: Embeddings (`all-MiniLM-L6-v2`) and vector storage (`ChromaDB`) run 100% locally.
 
 ```
                       +-------------------------------------------------------------+
@@ -75,6 +89,38 @@ To guarantee integrity and safety, the platform maintains strict segregation bet
 | **Verified Public Facts** | Medantrik company profile, IIT Kanpur incubation, official portal (`https://medantrik.com/`), and product overviews for **OxySense** (inline oxygen analyzer), **NODex** (smart respiratory device), and **Iron Lung** (smart respiration system). | Sourced directly from public web pages (`https://medantrik.com/?p=1930`). Stored in `data/product_catalog.json`. | Tagged with `source_type: "PUBLIC_VERIFIED_FACT"`. Rendered with distinctive cyan badge in evidence drawers. |
 | **Synthetic Demo Policies** | 12 policy documents covering ticket priorities, SLAs, escalation matrix, refunds, channels, hours, repeat complaints, service credits, feedback, VIP handling, outage broadcasts, and data retention. | Original student synthetic policies authored for this capstone in `knowledge_base/*.md`. | Tagged with `source_type: "SYNTHETIC_DEMO_POLICY"`. Explicitly warns user of fictional simulation. |
 | **Synthetic Ticket Records** | 80 seeded customer tickets with categories, statuses, products, resolution hours, and escalation flags. | Deterministically generated via `dataset.py` with fixed seed `20261107`. | Zero real patient or customer data. PII numbers masked automatically. |
+
+### Dataset Design Choices & Mathematical Parameters (Task 1 & Task 6)
+
+To enable deterministic grading and reproducibility:
+- **RNG Seed:** `20261107`
+- **Total Records:** `80` synthetic support tickets.
+- **Category Weights:** `(14, 34, 12, 22, 18)` corresponding to:
+  - `Billing`: 10 tickets (12.5%)
+  - `Technical Issue`: 33 tickets (41.25%)
+  - `Account Access`: 6 tickets (7.5%)
+  - `Product Defect`: 16 tickets (20.0%)
+  - `General Inquiry`: 15 tickets (18.75%)
+  *(Every category has $\ge 3$ records)*
+- **Status Weights:** `(22, 26, 12, 22, 18)` corresponding to:
+  - `Open`: 17 tickets (21.25%)
+  - `In Progress`: 14 tickets (17.5%)
+  - `Escalated`: 12 tickets (15.0%)
+  - `Resolved`: 16 tickets (20.0%)
+  - `Closed`: 21 tickets (26.25%)
+  *(Every status has $\ge 1$ record)*
+- **Escalated Rate:** **17.5%** of all tickets have `escalated=True` (strictly inside the required 10%–30% target band).
+- **Resolution Time Hours Bounds & Reasoning:**
+  - `Billing`: 2–72 hours
+  - `Technical Issue`: 2–144 hours
+  - `Account Access`: 1–48 hours
+  - `Product Defect`: 8–168 hours
+  - `General Inquiry`: 1–24 hours
+  *Reasoning:* Respiratory medical device support ranges from quick informational or account inquiries (1–24 hours) to complex hardware diagnostic and safety inspections (up to 168 hours / 7 days) requiring biomedical engineering coordination.
+- **Escalation Score Formula & Justification:**
+  $$\text{escalation\_score} = 0.50 \times \text{escalated} + 0.30 \times \left(\frac{\min(\text{days\_since\_created}, 30)}{30}\right) + 0.20 \times \left(\frac{\min(\text{reopen\_count}, 3)}{3}\right)$$
+  - Recommended escalation threshold: **`0.3667`**
+  - *Justification:* Corresponds to the empirical 80th percentile of the synthetic distribution, identifying tickets that combine critical escalation flags with aging unresolved durations or repeat reopens.
 
 ---
 
