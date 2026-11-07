@@ -13,6 +13,8 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Rebuild ChromaDB indexes
+        run: python -m scripts.rebuild_indexes
       - name: Run master verification runner
         run: python -m scripts.run_final_verification
       - name: Run automated test suite

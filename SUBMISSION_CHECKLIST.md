@@ -42,22 +42,19 @@
 
 ---
 
-## 3. GitHub Publication Steps
+## 3. GitHub Publication Status (Confirmed Live)
 
-Run the following commands to create and publish the public repository:
+The public repository has been created and pushed to GitHub:
 
+- **Public Repository URL:** [https://github.com/amanrathore88/final-capstone-MEDANTRIK-domain-support-agent-crewai](https://github.com/amanrathore88/final-capstone-MEDANTRIK-domain-support-agent-crewai)
+- **Clone URL:** `https://github.com/amanrathore88/final-capstone-MEDANTRIK-domain-support-agent-crewai.git`
+- **Visibility:** Public
+- **Branch:** `main`
+- **Sanitized Remote:** Verified that git remote configuration contains zero embedded API tokens or credentials.
+
+### Push Future Updates (If Needed)
 ```powershell
-# 1. Stage all tracked files
 git add .
-
-# 2. Commit with clean message
-git commit -m "feat: complete Medantrik Assist capstone - 16 tasks, evaluation, tests, UI, and evidence"
-
-# 3. Create a public repository on GitHub using GitHub CLI
-gh repo create medantrik-assist-capstone --public --source=. --remote=origin --push
-
-# (Or manually add your GitHub remote and push)
-# git remote add origin https://github.com/<your-username>/medantrik-assist-capstone.git
-# git branch -M main
-# git push -u origin main
+git commit -m "docs: updates"
+git push origin main
 ```

@@ -171,8 +171,8 @@ The application runs entirely local-first without requiring any paid API keys (`
 ### 1. Clone & Set Up Python Environment
 ```powershell
 # Clone the repository
-git clone https://github.com/your-username/medantrik-assist-capstone.git
-cd medantrik-assist-capstone
+git clone https://github.com/amanrathore88/final-capstone-MEDANTRIK-domain-support-agent-crewai.git
+cd final-capstone-MEDANTRIK-domain-support-agent-crewai
 
 # Create and activate virtual environment
 python -m venv .venv

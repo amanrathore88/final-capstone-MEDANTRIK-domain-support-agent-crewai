@@ -20,7 +20,10 @@ class SentenceTransformerEmbeddingFunction(EmbeddingFunction):
     """Local SentenceTransformers embedding wrapper for ChromaDB."""
 
     def __init__(self, model_name: str = EMBEDDING_MODEL_NAME):
-        self.model = SentenceTransformer(model_name, local_files_only=True)
+        try:
+            self.model = SentenceTransformer(model_name, local_files_only=True)
+        except Exception:
+            self.model = SentenceTransformer(model_name)
 
     def __call__(self, input: Documents) -> Embeddings:
         embeddings = self.model.encode(input, convert_to_numpy=True, normalize_embeddings=True)
@@ -57,6 +60,15 @@ class RAGCore:
             "fixed_overlap": self.collection_fixed,
             "sentence_based": self.collection_sentence,
         }
+
+        # Auto-index seed documents if running on a fresh environment
+        try:
+            if self.collection_fixed.count() == 0 or self.collection_sentence.count() == 0:
+                from rag.chunking import chunk_fixed_overlap, chunk_sentence_based, load_raw_documents
+                docs = load_raw_documents()
+                self.index_chunks(chunk_fixed_overlap(docs), chunk_sentence_based(docs))
+        except Exception:
+            pass
 
     def index_chunks(self, fixed_chunks: list[dict], sentence_chunks: list[dict]) -> dict[str, int]:
         """Index chunks into both Chroma collections."""
